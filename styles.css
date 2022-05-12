@@ -1,9 +1,20 @@
+:root {
+  --grid-size: 1;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
 .grid-container {
   margin: 10vh auto;
-  max-width: 35vw;
+  width: 500px;
+  height: 500px;
   display: grid;
-  grid-template-rows: repeat(16, 1fr);
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(var(--grid-size), 1fr);
+  grid-template-columns: repeat(var(--grid-size), 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
