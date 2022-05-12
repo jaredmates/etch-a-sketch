@@ -4,6 +4,10 @@ for (let j = 0; j < 256; j++) {
   let square = document.createElement("div");
   square.classList.add("grid-square");
   divContainer.appendChild(square);
+
+  square.addEventListener("mouseover", () => {
+    square.style.background = "#036bfc";
+  });
 }
 
 /* Alternative Method to making the Grid using Float property */
