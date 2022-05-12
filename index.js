@@ -11,8 +11,9 @@ function makeGrid(size) {
     square.classList.add("grid-square");
     divContainer.appendChild(square);
     // Hover Effect
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
     square.addEventListener("mouseover", () => {
-      square.style.background = "#036bfc";
+      square.style.background = "#" + randomColor;
     });
   }
 }

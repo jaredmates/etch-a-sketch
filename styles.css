@@ -20,7 +20,8 @@
 }
 
 .grid-square {
-  background: #9e9e9e;
+  /* background: #9e9e9e; */
+  background: white;
   border: black 1px solid;
   margin: 0;
   padding-top: 100%;
