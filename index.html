@@ -8,9 +8,30 @@
     <title>Etch-A-Sketch</title>
   </head>
   <body>
-    <button class="button"">Click me</button>
-    <div class="grid-container"></div>
-    <!-- <button class="button"">Click me</button> -->
+    <header>
+      <h1>Etch-A-Sketch</h1>
+    </header>
+
+    <main>
+      <section class="settings-container">
+        <input class="colorPicker" type="color" value="#333333" />
+        <button class="colorButton btn active">Color mode</button>
+        <button class="rainbowButton btn">Rainbow mode</button>
+        <button class="clearButton">Clear</button>
+        <div class="dimensions">16 x 16</div>
+        <input
+          class="gridSizeSlider"
+          type="range"
+          value="16"
+          min="1"
+          max="64"
+        />
+      </section>
+      <section>
+        <div class="grid-container"></div>
+      </section>
+    </main>
+
     <script src="index.js"></script>
   </body>
 </html>
