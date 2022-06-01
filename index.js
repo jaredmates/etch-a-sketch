@@ -21,6 +21,14 @@ const defaultColor = "#333333";
 let currentColor = defaultColor;
 let currentMode = defaultMode;
 let currentSize = defaultSize;
+let click = true;
+
+// So that buttons and inputs dont affect grid mode
+document.querySelector("body").addEventListener("click", (e) => {
+  if (e.target.tagName != "BUTTON" && e.target.tagName != "INPUT") {
+    click = !click;
+  }
+});
 
 window.onload = () => {
   makeGrid(defaultSize);
@@ -72,30 +80,16 @@ function makeGrid(size) {
     gridSquare.classList.add("grid-square");
     gridContainer.appendChild(gridSquare);
     // Hover Effect
-    gridSquare.addEventListener("mouseover", () => {
-      if (currentMode === "rainbow") {
-        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        gridSquare.style.background = "#" + randomColor;
-      } else if (currentMode === "color") {
-        gridSquare.style.background = currentColor;
-      }
-    });
+    gridSquare.addEventListener("mouseover", changeColor);
   }
 }
 
-// let mouseDown = false;
-// document.body.onmousedown = () => (mouseDown = true);
-// document.body.onmouseup = () => (mouseDown = false);
-
-// gridSquare.addEventListener("mouseover", changeColor);
-// gridSquare.addEventListener("mousedown", changeColor);
-
-// function changeColor(e) {
-//   if (e.type === "mouseover" && !mouseDown) return;
-//   if (currentMode === "rainbow") {
-//     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-//     e.target.style.background = "#" + randomColor;
-//   } else if (currentMode === "color") {
-//     e.target.style.background = currentColor;
-//   }
-// }
+function changeColor(e) {
+  if (e.type === "mouseover" && click) return;
+  if (currentMode === "rainbow") {
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    e.target.style.background = "#" + randomColor;
+  } else if (currentMode === "color") {
+    e.target.style.background = currentColor;
+  }
+}
